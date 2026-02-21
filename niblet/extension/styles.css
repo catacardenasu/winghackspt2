@@ -1,0 +1,63 @@
+﻿:host {
+  all: initial;
+}
+
+.niblet-bubble {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2147483646;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  max-width: 240px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid #d7dee8;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: #1f2937;
+
+  /* Animation baseline (hidden until .is-visible is added). */
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.niblet-bubble.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.niblet-bubble.is-hiding {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.niblet-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e11d48;
+  box-shadow: 0 0 0 6px rgba(225, 29, 72, 0.14);
+  flex-shrink: 0;
+}
+
+.niblet-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.niblet-text strong {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.niblet-text span {
+  font-size: 12px;
+  line-height: 1.25;
+}
