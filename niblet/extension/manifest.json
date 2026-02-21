@@ -1,39 +1,41 @@
-﻿{
+{
   "manifest_version": 3,
   "name": "Niblet",
-  "description": "Machine-learning nail-biting detection companion.",
+  "description": "Nail-biting monitor with webcam preview and in-page reminders.",
   "version": "1.0.0",
-  "permissions": [],
-  "host_permissions": [
-    "http://localhost:5000/*"
-  ],
+  "permissions": ["activeTab", "tabs"],
+  "host_permissions": ["http://localhost:5000/*"],
   "background": {
     "service_worker": "background.js"
   },
+  "icons": {
+    "16": "assets/icon16.png",
+    "32": "assets/icon32.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
   "action": {
+    "default_title": "Niblet",
     "default_popup": "popup.html",
-    "default_title": "Niblet"
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "32": "assets/icon32.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
   },
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "content.js"
-      ],
+      "matches": ["http://*/*", "https://*/*"],
+      "exclude_matches": ["http://localhost:5000/status*", "https://localhost:5000/status*"],
+      "js": ["content.js"],
       "run_at": "document_idle"
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": [
-        "styles.css",
-        "assets/*"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
+      "resources": ["styles.css"],
+      "matches": ["<all_urls>"]
     }
   ]
 }

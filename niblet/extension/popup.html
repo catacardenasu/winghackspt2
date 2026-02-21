@@ -4,29 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Niblet</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 12px;
-        min-width: 200px;
-        font-family: "Segoe UI", Tahoma, sans-serif;
-        color: #1a1a1a;
-        background: #ffffff;
-      }
-      h1 {
-        margin: 0 0 8px;
-        font-size: 14px;
-      }
-      p {
-        margin: 0;
-        font-size: 12px;
-        line-height: 1.4;
-        color: #444;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <h1>Niblet</h1>
-    <p>Running in this tab. Backend status is checked every second.</p>
+  <body class="popup-body">
+    <main class="popup-card">
+      <div class="logo-wrap" aria-hidden="true">
+        <svg class="bunny-logo" viewBox="0 0 120 120" role="img">
+          <g fill="currentColor">
+            <ellipse cx="42" cy="28" rx="12" ry="24"></ellipse>
+            <ellipse cx="78" cy="28" rx="12" ry="24"></ellipse>
+            <circle cx="60" cy="68" r="28"></circle>
+            <ellipse cx="60" cy="78" rx="10" ry="6" fill="#ffd6ec"></ellipse>
+          </g>
+        </svg>
+      </div>
+      <h1 class="popup-title">Niblet</h1>
+      <p class="popup-subtitle">Watch your hands while you work.</p>
+
+      <div class="popup-status" id="statusBadge">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Not Monitoring</span>
+      </div>
+
+      <div class="bunny-container">
+        <div id="bunnyAvatar" class="bunny-avatar neutral"></div>
+        <div id="bunnySpeech" class="bunny-speech">I'm here with you &#10024;</div>
+        <div id="streakDisplay" class="streak-display">Focus streak: 00:00</div>
+      </div>
+
+      <video id="cameraPreview" class="camera-preview" autoplay muted playsinline></video>
+
+      <button id="toggleCameraBtn" class="primary-btn" type="button">Enable Camera</button>
+    </main>
+
+    <script src="popup.js"></script>
   </body>
 </html>
+
